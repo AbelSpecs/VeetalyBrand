@@ -3,18 +3,20 @@ import ProductCard from '@/components/ui/productcard/productcard';
 import Header from '@/components/ui/header/header';
 import { getProducts } from './api/products';
 import dynamic from 'next/dynamic';
+import { Product } from '@/types/product';
+import LoginForm from '@/components/ui/loginform/loginform';
 
 const Navbar = dynamic(() => import('../components/ui/navbar/navbar'), { ssr: false});
 
 
 export default async function Home() {
-  const response = await getProducts();
-  const { data: products } = response!;
-
+  // const response = await getProducts();
+  // const { data: products } = response!;
+  // const products: Product[] = []
 
   return (
     <main>
-      <Navbar/>
+      {/* <Navbar/>
       <Header/>
       <div>
           <SearchBar/>
@@ -27,7 +29,8 @@ export default async function Home() {
             )
           })
         }
-      </div> 
+      </div>  */}
+      <LoginForm/>
     </main>
   )
 }

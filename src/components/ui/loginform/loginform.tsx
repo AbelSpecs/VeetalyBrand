@@ -56,7 +56,7 @@ export default function Loginform() {
                 <p className='text-gray-500 text-sm leading-5 text-center'>array of benefits.</p>
             </div>
 
-            <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            <div className="mt-7 sm:mx-auto sm:w-full sm:max-w-sm">
                 <form className="space-y-6" onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">Email</label>
