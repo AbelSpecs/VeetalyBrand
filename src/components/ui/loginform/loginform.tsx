@@ -105,7 +105,7 @@ export default function Loginform() {
                             <input id="remember" name="remember" type="radio" className="block mr-2 border-2 border-gray-300"/>
                             <label htmlFor="remember" className="block text-sm font-medium leading-6 text-gray-900">Recordarme</label>
                         </div>
-                        <a href="#" className="font-semibold text-[--primary-color] hover:text-[--secondary-color]">Olvido Contraseña</a>
+                        <a href="#" className="font-semibold text-[--primary-color] hover:text-[--secondary-color]">¿Olvidó Contraseña?</a>
                     </div>
                     <button type="submit" className="flex w-full rounded-3xl mb-5 justify-center bg-[--primary-color] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[--secondary-color] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Iniciar</button>
                 </div>
