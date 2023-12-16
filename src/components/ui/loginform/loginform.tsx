@@ -67,7 +67,7 @@ export default function Loginform() {
                             type="email" 
                             autoComplete="off" 
                             required 
-                            placeholder='Enter your Email' 
+                            placeholder='Ingrese Email' 
                             onFocus={ onFocusIn(focusKeys[0]) }
                             onBlur={ onFocusOut(focusKeys[0]) }
                             value={ email }
@@ -89,7 +89,7 @@ export default function Loginform() {
                             type="password" 
                             autoComplete="off" 
                             required 
-                            placeholder='Enter your password'
+                            placeholder='Ingrese Contraseña'
                             onFocus={ onFocusIn(focusKeys[1]) }
                             onBlur={ onFocusOut(focusKeys[1]) } 
                             value={ password }
