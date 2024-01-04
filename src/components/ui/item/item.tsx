@@ -1,7 +1,7 @@
 'use client'
-import { CartContext } from '@/context/context'
+import { CartContext } from '@/providers/cartProvider'
 import { CartItem } from '@/types/cartItem'
-import { Product } from '@/types/product'
+import { PostProduct } from '@/types/product'
 import React, { useContext } from 'react'
 
 
@@ -14,7 +14,7 @@ export default function Item({item}: ItemProps){
     return (
         <li className="flex py-6">
             <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                <img src="https://placehold.co/24x24/png" alt="imagen" className="h-full w-full object-cover object-center"/>
+                <img src={item.product.imageUrl} width={24} height={24} alt="imagen" className="h-full w-full object-cover object-center"/>
             </div>
 
             <div className="ml-4 flex flex-1 flex-col">
@@ -23,7 +23,7 @@ export default function Item({item}: ItemProps){
                         <h3>
                         <a href="#">{item.product.name}</a>
                         </h3>
-                        <p className="ml-4">${item.product.price}</p>
+                        <p className="ml-4">${item.product.boxType.price}</p>
                     </div>
                 </div>
                 <div className="flex flex-1 items-end justify-between text-sm">
@@ -31,7 +31,7 @@ export default function Item({item}: ItemProps){
 
                 <div className="flex">
                     <button type="button" className="font-medium text-[--primary-color] hover:text-[--secondary-color]"
-                            onClick={() => removeItems(item.product.id)}>Eliminar</button>
+                            onClick={() => removeItems(item.product.id!, item.product.boxType._id)}>Eliminar</button>
                 </div>
                 </div>
             </div>

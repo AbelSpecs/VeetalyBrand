@@ -1,11 +1,11 @@
 import { AxiosResponse } from "axios";
 import { veetalyApi } from "./axiosInstance";
-import { Product } from "@/types/product";
+import { GetProduct } from "@/types/product";
 
 
 const URL = 'products';
 
-const getProducts = async (): Promise<AxiosResponse<Product[], any | undefined>> => {
+const getProducts = async (): Promise<AxiosResponse<GetProduct[], any | undefined>> => {
     try {
         const response = await veetalyApi.get(URL);
         return response!;

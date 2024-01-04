@@ -1,4 +1,4 @@
-import auth from '@/utils/auth'
+import auth from '@/helpers/auth'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation';
 import React from 'react'
@@ -17,7 +17,7 @@ export default function Dropdownmenu() {
                 <div className="py-2">
                     <hr></hr>
                 </div>
-                <Button type='button' text='Logout' styles='transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded' onClick={() => { clear(() => { router.push('/auth')})}} />
+                <Button type='button' text='Logout' styles='transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded' onClick={() => { clear(() => { window.location.reload() })}} />
             </div>
         </div>
     )

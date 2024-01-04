@@ -1,13 +1,13 @@
 'use client'
 
 import { useForm } from '@/hooks/useForm';
-import { GetCategories } from '@/types/category'
+// import { GetCategories } from '@/types/category'
 import { useRouter } from 'next/navigation';
 import React from 'react'
 import Button from '../button/button';
 
 interface ProductFormProps{
-    categories: GetCategories[] 
+    categories?: [] 
 }
 
 const fields = {

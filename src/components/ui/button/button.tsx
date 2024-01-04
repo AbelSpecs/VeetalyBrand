@@ -1,5 +1,5 @@
-import { Product } from '@/types/product';
-import React, { ReactNode } from 'react'
+import { GetProduct } from '@/types/product';
+import React, { CSSProperties, ReactNode } from 'react'
 
 
 interface ButtonProps {
@@ -7,17 +7,27 @@ interface ButtonProps {
     styles?: string;
     type: 'button' | 'submit' | 'reset' | undefined;
     children?: ReactNode; 
+    disabled?: boolean; 
     onClick?: () => void;
-    // onClick2?: (event: any) => (product: Product, quantity: number) => void;
+    onMouseOver?: () => void;
+    onMouseOut?: () => void;
+    onMouseDown?: () => void;
+    onMouseUp?: () => void;
 }
 
-export default function Button({text, styles, type, onClick, children}: ButtonProps) {
+export default function Button({text, styles, type, onClick, disabled, onMouseOver, onMouseOut, onMouseDown, onMouseUp, children}: ButtonProps) {
   
-  // const changeButton = onClick ? true : false;
 
   return (
     
-    <button type={type} className={styles} onClick={onClick}>
+    <button type={type} 
+            disabled={disabled}
+            className={styles} 
+            onClick={onClick} 
+            onMouseOver={onMouseOver} 
+            onMouseOut={onMouseOut}
+            onMouseDown={onMouseDown}
+            onMouseUp={onMouseUp}>
         {children}{text}
     </button>
     

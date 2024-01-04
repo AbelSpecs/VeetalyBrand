@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter, Quicksand } from 'next/font/google'
 import './globals.css'
-import { CartProvider } from '@/context/context'
+import { CartProvider } from '@/providers/cartProvider'
+import { RouteProvider } from '@/providers/routeProvider'
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -20,9 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={quicksand.className}>
-        <CartProvider>
-          {children}
-        </CartProvider>
+        <RouteProvider>
+          <CartProvider>
+            {children}
+          </CartProvider>
+        </RouteProvider>
       </body>
     </html>
   )

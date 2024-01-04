@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import logo from '@/assets/Logo.svg';
 import { useForm } from '@/hooks/useForm';
 import { Auth } from '@/types/auth';
-import { signup } from '@/app/api/users';
+import { signup } from '@/services/users';
 import Link from 'next/link';
 
 const fields = {
@@ -50,10 +50,10 @@ export default function Registerform() {
                     <Image className="mx-auto w-auto" src={logo} width={72} height={72} alt="Veetaly Logo"/>
                 </div>
                 <h1 className="mt-10 mb-2 text-center text-3xl font-bold leading-9 tracking-tight text-gray-900 font-semibold">Registrate</h1>
-                <p className='text-gray-500 text-sm leading-5 text-center'>The login page prioritizes user security,</p>
+                {/* <p className='text-gray-500 text-sm leading-5 text-center'>The login page prioritizes user security,</p>
                 <p className='text-gray-500 text-sm leading-5 text-center'>offering a seamless experience that ensures</p>
                 <p className='text-gray-500 text-sm leading-5 text-center'>quick and convenient access to the system&apos;s</p>
-                <p className='text-gray-500 text-sm leading-5 text-center'>array of benefits.</p>
+                <p className='text-gray-500 text-sm leading-5 text-center'>array of benefits.</p> */}
             </div>
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -67,7 +67,7 @@ export default function Registerform() {
                             type="name" 
                             autoComplete="off" 
                             required 
-                            placeholder='Enter your Name' 
+                            placeholder='Nombre' 
                             onFocus={ onFocusIn(focusKeys[0]) }
                             onBlur={ onFocusOut(focusKeys[0]) }
                             value={ name }
@@ -86,7 +86,7 @@ export default function Registerform() {
                             type="email" 
                             autoComplete="off" 
                             required 
-                            placeholder='Enter your Email' 
+                            placeholder='Email' 
                             onFocus={ onFocusIn(focusKeys[1]) }
                             onBlur={ onFocusOut(focusKeys[1]) }
                             value={ email }
@@ -108,7 +108,7 @@ export default function Registerform() {
                             type="password" 
                             autoComplete="off" 
                             required 
-                            placeholder='Enter your password'
+                            placeholder='Contraseña'
                             onFocus={ onFocusIn(focusKeys[2]) }
                             onBlur={ onFocusOut(focusKeys[2]) } 
                             value={ password }
@@ -126,10 +126,10 @@ export default function Registerform() {
                         <input className="block w-full rounded-3xl h-[40px] border-0 py-1.5 pl-5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             id="password2" 
                             name="password2" 
-                            type="password2" 
+                            type="password" 
                             autoComplete="off" 
                             required 
-                            placeholder='Confirm your password'
+                            placeholder='Repite Contraseña'
                             onFocus={ onFocusIn(focusKeys[3]) }
                             onBlur={ onFocusOut(focusKeys[3]) } 
                             value={ password2 }

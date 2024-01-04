@@ -1,8 +1,7 @@
-import { Product } from "./product";
+import { PostProduct } from "./product";
 
 export interface CartItem {
     id?: string;
-    product: Product;
+    product: PostProduct;
     askedQuantity: number;
-
 }

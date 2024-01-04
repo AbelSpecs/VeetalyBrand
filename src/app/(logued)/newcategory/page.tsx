@@ -4,9 +4,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation'
 import { useForm } from '@/hooks/useForm';
 import Button from '@/components/ui/button/button';
-import { PostCategory } from '@/types/category';
-import auth from '@/utils/auth';
-import { postCategory } from '@/app/api/category';
+
 
 const fields = {
   name: ''
@@ -26,16 +24,16 @@ export default function NewCategory() {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const category: PostCategory = {
-      name: name.toUpperCase(),
-      user: auth.getUser()
-    }
+    // const category: PostCategory = {
+    //   name: name.toUpperCase(),
+    //   user: auth.getUser()
+    // }
 
-    postCategory(category).then((response) => {
-      if(response.data){
-        router.push('/');
-      }
-    })
+    // postCategory(category).then((response) => {
+    //   if(response.data){
+    //     router.push('/');
+    //   }
+    // })
   }
 
   return (

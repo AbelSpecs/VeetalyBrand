@@ -1,8 +1,9 @@
 'use client'
 import React, { useContext } from 'react'
 import Button from '../button/button';
-import { CartContext } from '@/context/context';
+import { CartContext } from '@/providers/cartProvider';
 import Item from '../item/item';
+import { useRouter } from 'next/navigation';
 
 interface CartProps {
     styles?: string;
@@ -10,6 +11,7 @@ interface CartProps {
 }
 
 export default function Cart({styles, handleCart}: CartProps) {
+    const router = useRouter();
     const { items, total } = useContext(CartContext)!;
     console.log(items);
 
@@ -39,14 +41,15 @@ export default function Cart({styles, handleCart}: CartProps) {
                                         <div className="mt-8">
                                             <div className="flow-root">
                                             {
-                                                items.length === 0 && 
+                                                items!.length === 0 && 
                                                 <h3>No tienes nada en el carrito</h3>   
                                             }
                                             <ul role="list" className="-my-6 divide-y divide-gray-200">
                                                 {
-                                                    items.map((item) => {
+                                                    items!.map((item) => {
+                                                        const id = item.product.id?.concat(item.product.boxType._id);
                                                         return (
-                                                            <Item key={item.product.id} item={item}/>
+                                                            <Item key={id} item={item}/>
                                                         )
                                                     })
                                                 }
@@ -61,7 +64,11 @@ export default function Cart({styles, handleCart}: CartProps) {
                                     <p>${total}</p>
                                 </div>
                                 <div className="mt-6">
-                                    <Button type='button' text='Pagar' styles='flex w-full rounded-3xl mb-5 justify-center bg-[--primary-color] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[--secondary-color] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'/>
+                                    <Button type='button' 
+                                            text='Pagar'
+                                            disabled={items!.length === 0}
+                                            onClick={() => router.push('/checkout')} 
+                                            styles='flex w-full rounded-3xl mb-5 justify-center bg-[--primary-color] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[--secondary-color] disabled:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'/>
                                 </div>
                                 <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                                     <p className='mr-2'>
