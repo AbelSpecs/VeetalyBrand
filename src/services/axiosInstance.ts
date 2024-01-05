@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const URL = process.env.NEXT_PUBLIC_API_URL;
+
 export const veetalyApi = axios.create({
-    baseURL: 'http://localhost:8080/api/',
+    baseURL: URL,
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
