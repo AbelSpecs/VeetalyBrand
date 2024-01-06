@@ -1,13 +1,18 @@
-import { AxiosResponse } from "axios";
-import { veetalyApi } from "./axiosInstance";
 import { Auth } from "@/types/auth";
 
-const URL = 'users';
 
-const signup = async(data: Auth): Promise<AxiosResponse<any, any | undefined>> => {
+const signup = async(data: Auth): Promise<any> => {
     try {
-        const response = await veetalyApi.post(URL, data);
-        return response!;
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}users`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        const res = await response.json();
+        return res;
     } catch (error: any) {
         throw new Error(error)
     }

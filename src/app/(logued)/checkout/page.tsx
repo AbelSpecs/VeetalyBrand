@@ -1,12 +1,21 @@
 import CheckoutForm from "@/components/ui/checkoutform/checkoutform";
-import { getCities } from "@/services/cities";
-import { GroupedCities } from "@/types/city";
+import { City, GroupedCities } from "@/types/city";
 
+
+async function getCities():Promise<City[]> {
+    const URL = `${process.env.NEXT_PUBLIC_API_URL}cities`;
+    try {
+        const response = await fetch(URL);
+        const cities = await response.json();
+        return cities;
+    } catch (error: any) {
+        throw new Error(error)
+    }
+}
 
 export default async function Checkout() {
     const response = await getCities();
-    const { data: citiesData } = response!;
-    const cities = citiesData.reduce((groupedCities, city) => {
+    const cities = response.reduce((groupedCities, city) => {
         const shipping = city.shipping;
 
         const cityExists = groupedCities.find(city => city.shipping === shipping) as GroupedCities;
@@ -28,5 +37,4 @@ export default async function Checkout() {
     return (
         <CheckoutForm cities={cities}/>
     )
-
 }

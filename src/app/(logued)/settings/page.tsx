@@ -49,7 +49,7 @@ export default function Settings() {
                                     type="name" 
                                     autoComplete="off" 
                                     required 
-                                    placeholder='Enter your Name' 
+                                    placeholder='Nombre' 
                                     onFocus={ onFocusIn(focusKeys[0]) }
                                     onBlur={ onFocusOut(focusKeys[0]) }
                                     value={ name }
@@ -68,7 +68,7 @@ export default function Settings() {
                                     type="email" 
                                     autoComplete="off" 
                                     required 
-                                    placeholder='Enter your Email' 
+                                    placeholder='Email' 
                                     onFocus={ onFocusIn(focusKeys[1]) }
                                     onBlur={ onFocusOut(focusKeys[1]) }
                                     value={ email }
@@ -109,7 +109,7 @@ export default function Settings() {
                                     type="password" 
                                     autoComplete="off" 
                                     required 
-                                    placeholder='Enter your password'
+                                    placeholder='Contraseña'
                                     onFocus={ onFocusIn(focusKeys[3]) }
                                     onBlur={ onFocusOut(focusKeys[3]) } 
                                     value={ password }
@@ -130,7 +130,7 @@ export default function Settings() {
                                     type="password2" 
                                     autoComplete="off" 
                                     required 
-                                    placeholder='Confirm your password'
+                                    placeholder='Confirmar Contraseña'
                                     onFocus={ onFocusIn(focusKeys[4]) }
                                     onBlur={ onFocusOut(focusKeys[4]) } 
                                     value={ password2 }

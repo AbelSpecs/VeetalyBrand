@@ -35,8 +35,8 @@ export default function Loginform() {
         const authInfo: Auth = { email, password };
 
         login(authInfo).then((response) =>{
-            if(response!.data){
-                auth.authenticate(response!.data, () => {
+            if(response){
+                auth.authenticate(response, () => {
                     router.push('/');
                 })
             }

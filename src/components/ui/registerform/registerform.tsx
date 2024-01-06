@@ -36,7 +36,7 @@ export default function Registerform() {
     const authInfo: Auth = { name, email, password };
 
     signup(authInfo).then((response) =>{
-        if(response!.data){
+        if(response){
           router.push('/auth');
         }
     });

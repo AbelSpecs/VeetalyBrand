@@ -1,12 +1,9 @@
 
-
-
-
 const postCheckoutPaypal = async(paypalOrder: any): Promise<any> => {
     console.log(paypalOrder);
     
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}orders`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -16,7 +13,6 @@ const postCheckoutPaypal = async(paypalOrder: any): Promise<any> => {
         });
         const res = await response.json();
         return res.result.id;
-        // console.log(res);
     } catch (error: any) {
         console.log('error');
         throw new Error(error)

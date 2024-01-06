@@ -1,22 +1,24 @@
-// import SearchBar from '@/components/ui/searchbar/searchbar';
 import ProductCard from '@/components/ui/productcard/productcard';
 import Header from '@/components/ui/header/header';
-import { getProducts } from '../services/products';
 import dynamic from 'next/dynamic';
 import { GetProduct } from '@/types/product';
-import LoginForm from '@/components/ui/loginform/loginform';
-import hojas from '@/assets/hojas.png';
-import fregluten from '@/assets/sinazucar.png';
-import fruits from '@/assets/pina.png';
-import Image from 'next/image';
 
 const Navbar = dynamic(() => import('../components/ui/navbar/navbar'), { ssr: false});
 
 
+const getProducts = async (): Promise<GetProduct[]> => {
+    const URL = `${process.env.NEXT_PUBLIC_API_URL}products`;
+    try {
+        const response = await fetch(URL);
+        const products = await response.json();
+        return products;
+    } catch (error: any) {
+        throw new Error(error)
+    }
+}
+
 export default async function Home() {
-  const response = await getProducts();
-  const { data: products } = response!;
-  // const products: Product[] = []
+  const products = await getProducts();
 
   return (
     <main>
@@ -35,7 +37,6 @@ export default async function Home() {
           })
         }
       </div> 
-      {/* <LoginForm/> */}
     </main>
   )
 }
